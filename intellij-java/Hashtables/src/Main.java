@@ -8,7 +8,10 @@ public class Main {
         Employee mikeWilson = new Employee("Mike", "Wilson", 3245);
         Employee billEnd = new Employee("Bill", "End", 78);
 
-        SimpleHashtable ht = new SimpleHashtable();
+//        SimpleHashtable ht = new SimpleHashtable();
+//        LinearProbingHashtable ht = new LinearProbingHashtable();
+        ChainingHashtable ht = new ChainingHashtable();
+
         ht.put("Jones", janeJones);
         ht.put("Doe", johnDoe);
         ht.put("Smith", marySmith);
