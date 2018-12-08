@@ -51,7 +51,8 @@ public class ChainingHashtable {
     }
 
     private int hashKey(String key) {
-        return key.length() % hashtable.length;
+        // return key.length() % hashtable.length;
+        return Math.abs(key.hashCode() % hashtable.length);
     }
 
     public void printHashtable() {
@@ -62,8 +63,8 @@ public class ChainingHashtable {
                 System.out.println("Position at " + i + ": ");
                 ListIterator<StoredEmployee> iterator = hashtable[i].listIterator();
                 while (iterator.hasNext()) {
-                    System.out.println(iterator.next().employee);
-                    System.out.println("->");
+                    System.out.print(iterator.next().employee);
+                    System.out.print("->");
                 }
                 System.out.println("null");
             }
