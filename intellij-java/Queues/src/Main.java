@@ -10,18 +10,17 @@ public class Main {
 
         ArrayQueue queue = new ArrayQueue(5);
 
-//        queue.add(janeJones);
-//        queue.add(johnDoe);
-//        queue.remove();
-//        queue.add(marySmith);
-//        queue.remove();
-//        queue.add(mikeWilson);
-//        queue.remove();
-//        queue.add(billEnd);
-//        queue.remove();
-//        queue.add(janeJones);
-//
-//        queue.printQueue();
+        queue.add(janeJones);
+        queue.add(johnDoe);
+        queue.remove();
+        queue.add(marySmith);
+        queue.remove();
+        queue.add(mikeWilson);
+        queue.remove();
+        queue.add(billEnd);
+        queue.remove();
+        queue.add(janeJones);
+        queue.printQueue();
 
         queue.add(janeJones);
         queue.add(johnDoe);
@@ -29,5 +28,6 @@ public class Main {
         queue.add(mikeWilson);
         queue.add(billEnd);
         queue.printQueue();
+
     }
 }
