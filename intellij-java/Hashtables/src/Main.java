@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -17,6 +21,19 @@ public class Main {
         ht.put("Smith", marySmith);
         System.out.println(ht.get("Smith"));
         System.out.println("----");
-        ht.printHashtable();
+//        ht.printHashtable();
+
+        Map<String, Employee> hashMap = new HashMap<String, Employee>();
+        hashMap.put("Jones", janeJones);
+        hashMap.put("Doe", johnDoe);
+        hashMap.put("Smith", marySmith);
+
+        Iterator<Employee> iterator = hashMap.values().iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        hashMap.forEach((k,v) -> System.out.println(v));
+
     }
 }
