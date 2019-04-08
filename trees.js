@@ -53,7 +53,7 @@ class BinarySearchTree {
 		return false;
 	}
 
-	// TREE TRAVERSALS
+	// BINARY SEARCH TREE, TREE TRAVERSALS
 	BFS() {
 		var queue = [];
 		var visited = [];
@@ -71,17 +71,28 @@ class BinarySearchTree {
 		return visited;
 	}
 
-
-
 	DFS_preorder() {
 		var visited = [];
 		this.pre_order_helper(visited, this.root);
 		return visited;
 	}
-	pre_order_helper(visited, node) {
+	// pre-order, the node visited comes first
+	pre_order_helper(visited, node) { // node, left, right
 		visited.push(node.val);
 		if (node.left) this.pre_order_helper(visited, node.left);
 		if (node.right) this.pre_order_helper(visited, node.right);
+	}
+	// in-order, the node visited is after the left child
+	in_order_helper(visited, node) { // left, node, right
+		if (node.left) this.pre_order_helper(visited, node.left);
+		visited.push(node.val);
+		if (node.right) this.pre_order_helper(visited, node.right);
+	}
+	// post order, the node visited comes last after the left and right child
+	post_order_helper(visited, node) { // left, right, node
+		if (node.left) this.pre_order_helper(visited, node.left);
+		if (node.right) this.pre_order_helper(visited, node.right);
+		visited.push(node.val);
 	}
 
 
