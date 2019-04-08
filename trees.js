@@ -53,6 +53,7 @@ class BinarySearchTree {
 		return false;
 	}
 
+	// TREE TRAVERSALS
 	BFS() {
 		var queue = [];
 		var visited = [];
@@ -69,6 +70,21 @@ class BinarySearchTree {
 		}
 		return visited;
 	}
+
+
+
+	DFS_preorder() {
+		var visited = [];
+		this.pre_order_helper(visited, this.root);
+		return visited;
+	}
+	pre_order_helper(visited, node) {
+		visited.push(node.val);
+		if (node.left) this.pre_order_helper(visited, node.left);
+		if (node.right) this.pre_order_helper(visited, node.right);
+	}
+
+
 }
 
 var tree = new BinarySearchTree();
@@ -79,7 +95,7 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 console.log(tree.BFS());
-
+console.log(tree.DFS_preorder());
 /*
 Breadth first search (BFS)
 traversal, iterative approach: 
