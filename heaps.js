@@ -38,6 +38,13 @@ class MaxBinaryHeap {
 	}
 
 	remove() { // also called extract max (or extract min if it was a min heap)
+		if (this.values.length === 0) return undefined;
+		if (this.values.length === 1) {
+			var removed = this.values.pop();
+			console.log(removed);
+			console.log(this.values);
+			return removed;
+		}
 		var removed = this.values[0];
 		this.values[0] = this.values.pop();
 		var length = this.values.length;
@@ -80,7 +87,7 @@ class MaxBinaryHeap {
 				else {
 					break;
 				}
-			} else if (hasLeft) {
+			} else if (hasLeft && !hasRight) {
 				if (this.values[i] < this.values[left]) {
 					var temp = this.values[i];
 					this.values[i] = this.values[left];
@@ -88,11 +95,14 @@ class MaxBinaryHeap {
 					i = left;
 				}
 				else break;
-			} else {
+			} else { // has no children
 				break;
 			}
 		}
-		return this.values;
+		console.log(removed);
+		console.log(this.values);
+
+		return removed;
 	}
 }
 
@@ -106,6 +116,13 @@ console.log(mbh.insert(18));
 console.log(mbh.insert(27));
 console.log(mbh.insert(17));
 console.log(mbh.insert(55));
-console.log(mbh.remove());
-console.log(mbh.remove());
-console.log(mbh.remove());
+mbh.remove();
+mbh.remove();
+mbh.remove();
+mbh.remove();
+mbh.remove();
+mbh.remove();
+mbh.remove();
+mbh.remove();
+mbh.remove();
+mbh.remove();
