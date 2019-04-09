@@ -15,8 +15,16 @@ for any parent node at index n, its left child is stored at 2n+1
 	its right child is stored at 2n+2
 for any child node at index n, its parent is at floor((n-1)/2)
 
-remove from heap (the root) // extract max from max heap
+inserting to heap, must heapify which bubbles up the newly added node if it is greater
+
+remove from heap (the root), must heapify-down (fix) // extract max from max heap
+
+Priority queue is an abstract data structure with each element has a priority associated with it,
+higher priority is served before lower priority
+Priority queues can be implemented with an array, or heap
+
 */
+"use strict";
 
 class MaxBinaryHeap {
 	constructor() {
@@ -26,7 +34,7 @@ class MaxBinaryHeap {
 	insert(value) {
 		this.values.push(value);
 		var index = this.values.length - 1;
-		var parent_index = Math.floor((index - 1)/2);
+		var parent_index = Math.floor(Math.abs((index - 1)/2));
 		while (this.values[parent_index] < this.values[index]) {
 			var temp = this.values[parent_index];
 			this.values[parent_index] = this.values[index];
@@ -116,12 +124,6 @@ console.log(mbh.insert(18));
 console.log(mbh.insert(27));
 console.log(mbh.insert(17));
 console.log(mbh.insert(55));
-mbh.remove();
-mbh.remove();
-mbh.remove();
-mbh.remove();
-mbh.remove();
-mbh.remove();
 mbh.remove();
 mbh.remove();
 mbh.remove();
