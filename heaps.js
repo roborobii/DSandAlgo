@@ -1,4 +1,9 @@
 /*
+Binary Heaps Complexity:
+Insertion: O(log n) // adding at left most available leaf then heapify
+Removal: O(log n) // removing root (or swapping root with right most leaf) then heapify
+Search: O(log n) // necessarily not used for searching but finding a maxima/minima O(1)
+Max/Min Retrieval: O(1)
 
 (Binary) Heap: very similar to a BST but some different rules
 - Max Heap, parent nodes are always larger than child nodes
