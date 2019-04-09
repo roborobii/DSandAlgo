@@ -37,17 +37,16 @@ class MaxBinaryHeap {
 		return this.values;
 	}
 
-	remove() {
+	remove() { // also called extract max (or extract min if it was a min heap)
 		var removed = this.values[0];
-		this.values[0] = this.values[this.values.length-1];
-		this.values.pop();
+		this.values[0] = this.values.pop();
 		var length = this.values.length;
 		var i = 0;
 		while (true) {
 			var left = 2*i+1;
 			var right = 2*i+2;
-			var hasLeft = 2*i+1 < length-1;
-			var hasRight = 2*i+2 < length-1;
+			var hasLeft = 2*i+1 < length;
+			var hasRight = 2*i+2 < length;
 			if (hasLeft && hasRight) {
 				// check if both children are greater
 				if (this.values[i] < this.values[left] && this.values[i] < this.values[right]) {
@@ -88,6 +87,7 @@ class MaxBinaryHeap {
 					this.values[left] = temp;
 					i = left;
 				}
+				else break;
 			} else {
 				break;
 			}
