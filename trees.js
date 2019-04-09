@@ -53,8 +53,11 @@ class BinarySearchTree {
 		return false;
 	}
 
-	// BINARY SEARCH TREE, TREE TRAVERSALS
-	BFS() {
+	// BINARY SEARCH TREE, Traversals (visiting all nodes), 
+	// both DFS and BFS are O(n) in time since both visit every node
+	// space complexity depends on the structure; 
+	BFS() { // O(n) time since visiting every node, O(n) space
+		// lots of nodes to keep track of; storing a ton of data in memory
 		var queue = [];
 		var visited = [];
 		queue.push(this.root);
@@ -71,9 +74,10 @@ class BinarySearchTree {
 		return visited;
 	}
 
-	DFS_preorder() {
+	DFS_preorder() { // O(n) time, call stack gets filled bc of recursion,
+	// only one branch to keep track of space is O(1)
 		var visited = [];
-		this.pre_order_helper(visited, this.root);
+		this.post_order_helper(visited, this.root);
 		return visited;
 	}
 	// pre-order, the node visited comes first
@@ -84,19 +88,18 @@ class BinarySearchTree {
 	}
 	// in-order, the node visited is after the left child
 	in_order_helper(visited, node) { // left, node, right
-		if (node.left) this.pre_order_helper(visited, node.left);
+		if (node.left) this.in_order_helper(visited, node.left);
 		visited.push(node.val);
-		if (node.right) this.pre_order_helper(visited, node.right);
+		if (node.right) this.in_order_helper(visited, node.right);
 	}
 	// post order, the node visited comes last after the left and right child
 	post_order_helper(visited, node) { // left, right, node
-		if (node.left) this.pre_order_helper(visited, node.left);
-		if (node.right) this.pre_order_helper(visited, node.right);
+		if (node.left) this.post_order_helper(visited, node.left);
+		if (node.right) this.post_order_helper(visited, node.right);
 		visited.push(node.val);
 	}
-
-
 }
+
 
 var tree = new BinarySearchTree();
 tree.insert(10);
@@ -107,6 +110,7 @@ tree.insert(8);
 tree.insert(20);
 console.log(tree.BFS());
 console.log(tree.DFS_preorder());
+
 /*
 Breadth first search (BFS)
 traversal, iterative approach: 
