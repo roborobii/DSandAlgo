@@ -21,6 +21,12 @@ with a hash function
 	this allows to store multiple key-value pairs at same index
 - Linear probing: when collision, search through array to find the next empty slot
 	this allows us to store single key-value at each index
+
+Average case time complexities of Hash Tables:
+Insertion, Deletion, Access: O(1)
+A good hash function makes it fast, distributes keys uniformly,
+	and deterministic
+
 */ 
 
 function hash(key, arrayLen) {
@@ -61,7 +67,7 @@ class HashTable {
 		return total;
 	}
 
-	set(key, value) {
+	set(key, value) { // O(1)
 		let index = this._hash(key);
 		if (this.keyMap[index] === undefined) {
 			this.keyMap[index] = [];
@@ -70,19 +76,22 @@ class HashTable {
 		return index;
 	}
 
-	get(key) {
+	get(key) { // depending on quality of hash function -> O(1) or O(N), 
+		// but O(N) string comparison and O(size) for chaining array
+		// most likely O(N*S) where N is string comparison, S is size of chained array to linearily search in
+		// if collisions happen less, then may be amortized to O(1)
 		let index = this._hash(key);
 		let chainedArray = this.keyMap[index];
 		if (chainedArray === undefined) return undefined;
-		for (let i = 0; i < chainedArray.length; i++) {
-			if (key === chainedArray[i][0]) {
+		for (let i = 0; i < chainedArray.length; i++) { // O(size of chaining array)
+			if (key === chainedArray[i][0]) { // potentially O(N) string comparison
 				return chainedArray[i];
 			}
 		}
 		return undefined;
 	}
 
-	keys() {
+	keys() { // O(size*chainArray_size)
 		let allKeys = [];
 		for (let i = 0; i < this.keyMap.length; i++) {
 			if (this.keyMap[i] !== undefined) {
@@ -93,7 +102,7 @@ class HashTable {
 		}
 		return allKeys;
 	}
-	values() {
+	values() { // O(size*chainArray_size)
 		let allValues = [];
 		for (let i = 0; i < this.keyMap.length; i++) {
 			if (this.keyMap[i] !== undefined) {
@@ -104,11 +113,11 @@ class HashTable {
 		}
 		return allValues;
 	}
-	uniqueKeys() {
+	uniqueKeys() { // O(size*chainArray_size)
 		let uniqueKeys = new Set();
-		for (let i = 0; i < this.keyMap.length; i++) {
-			if (this.keyMap[i] !== undefined) {
-				for (let j = 0; j < this.keyMap[i].length; j++) {
+		for (let i = 0; i < this.keyMap.length; i++) { // O(size)
+			if (this.keyMap[i]) { // !== undefined) {
+				for (let j = 0; j < this.keyMap[i].length; j++) { // O(chain_size)
 					uniqueKeys.add(this.keyMap[i][j][0]);
 				}
 			}
