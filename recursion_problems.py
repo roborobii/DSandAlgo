@@ -81,3 +81,31 @@ def nested_dict_r2(d, total=0):
 	return total
 print(nested_dict_r2({"key1":2, "key2": {"key3":2, "key4": {"key5":8}}}))
 print(nested_dict_r2(obj1))
+
+
+# Stringify recursion
+# finds all values that are numbers in the dictionary and nested dictionary,
+#	turn numbers into strings [put those in array result] using recursion
+def stringifyNumbersToList(d):
+	result = []
+	for key in d.keys():
+		if (type(d[key]) == int):
+			result.append(str(d[key]))
+		elif (type(d[key]) == dict):
+			result += stringifyNumbersToList(d[key])
+	return result
+
+print(stringifyNumbersToList({"key1":2, "key2": {"key3":2, "key4": {"key5":8}}}))
+print(stringifyNumbersToList(obj1))
+
+# finds all values that are numbers in the dictionary and nested dictionary,
+#	turn numbers into strings [in place] using recursion
+def stringifyNumbersInPlace(d):
+	for key in d:
+		if (type(d[key]) == int):
+			d[key] = str(d[key])
+		elif (type(d[key]) == dict):
+			stringifyNumbersInPlace(d[key])
+	return d
+print(stringifyNumbersInPlace({"key1":2, "key2": {"key3":2, "key4": {"key5":8}}}))
+print(stringifyNumbersInPlace(obj1))
