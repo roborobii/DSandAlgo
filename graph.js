@@ -7,6 +7,7 @@ Graph
 - applications for graphs: social networks, location/mapping, routing algorithms,
 	visual hierarchy, file system optimizations, everywhere ;)
 - traverse through graph using BFS and DFS
+
 */
 
 class Graph {
