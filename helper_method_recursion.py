@@ -49,7 +49,6 @@ def collect_odd_values3(arr):
 		return result
 	if (arr[0] % 2 != 0):
 		result.append(arr[0])
-	result = result + collect_odd_values3(arr[1:])
-	return result
-	
+	return result + collect_odd_values3(arr[1:])
+
 print(collect_odd_values3([1,2,3,4,5,6]))
