@@ -1,4 +1,4 @@
-def most_freq(arr):
+def most_freq(arr): # O(N)
 	if (len(arr) == 0):
 		return None
 	
@@ -17,6 +17,5 @@ def most_freq(arr):
 
 	return max_element
 
-print(most_freq([1,1,6,7,1,1,1,1,1,2,3,4,]))
-
-
+print(most_freq([1,2,3,5,5,5]))
+print(most_freq(["hello", "world", "world"]))
