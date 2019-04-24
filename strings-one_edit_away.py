@@ -42,9 +42,15 @@ def one_edit_away_one_larger(s1,s2):
 		j += 1
 	return True
 
-print(one_edit_away("abcde","abcd"))
+print(one_edit_away("abcde","abcfde"))
 print(one_edit_away("abcde","abcde"))
+print(one_edit_away("abcde","abfde"))
+print(one_edit_away("abcde","abcd"))
 print(one_edit_away("abcde","abce"))
 print(one_edit_away("abcde","abc"))
-print(one_edit_away("abcde","abde"))
-print(one_edit_away("abcde","abcfde"))
+print(one_edit_away("abcde","abfce"))
+print(one_edit_away("pale","ple"))
+print(one_edit_away("pales","pale"))
+print(one_edit_away("pale","bale"))
+print(one_edit_away("pale","bae"))
+
