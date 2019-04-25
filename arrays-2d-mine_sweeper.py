@@ -32,7 +32,7 @@ def find_neighbors_indices(bomb, rows, cols):
 	j = bomb[1]
 	for x in range(i-1,i+2):
 		for y in range(j-1,j+2):
-			if (x >= 0 and x <= rows and y >= 0 and y < cols):
+			if (x >= 0 and x < rows and y >= 0 and y < cols):
 				neighbors.append([x,y])
 	return neighbors
 
