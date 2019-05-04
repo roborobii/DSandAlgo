@@ -1,4 +1,5 @@
 # This repository is for solidifying my understanding of data structures and algorithms
+* https://github.com/roborobii/DSandAlgo
 arays: fast access for an element at an index, but slow lookups and insertions (if it was full, it should create a bigger array twice its size for amortized O(1) time complexity, not good for memory; it takes memory it does not use up). Major uses and concepts: iteration, resizing, partitioning, merging.
 
 strings: understand how strings are represented in memory, undestand basic operators such as comparison, copying, matching, joining, splitting ... can be viewed as an array, namely one made of characters. we treat strings separately from arrays because certain operations which are commonly applied to strings, for example: comparison, joining, splitting, searching for substring, replacing one string by another, parsing, and etc do not make sense for general arrays
