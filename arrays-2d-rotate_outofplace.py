@@ -1,5 +1,5 @@
 # rotate N by N matrix 90 degrees clockwise
-def rotateImage_out(a): # O(N^2), must visit all elements in the matrix
+def rotate_outofplace(a): # O(N^2), must visit all elements in the matrix
     rotated = []
     rows = len(a)
     for i in range(rows):
@@ -12,10 +12,11 @@ def rotateImage_out(a): # O(N^2), must visit all elements in the matrix
             rotated[j][rows-1-i] = a[i][j]
     return rotated
 
-print(rotateImage_out([[1, 2, 3],[4, 5, 6],[7, 8, 9]]))
-print(rotateImage_out(
-    [[10,9,6,3,7], 
-     [6,10,2,9,7], 
-     [7,6,3,8,2], 
-     [8,9,7,9,9], 
-     [6,8,6,8,2]]))
+print(rotate_outofplace([[1, 2, 3],[4, 5, 6],[7, 8, 9]]))
+print(rotate_outofplace([[1, 2, 3, 4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]))
+print(rotate_outofplace(
+    [[1,2,3,4,5], 
+     [6,7,8,9,10], 
+     [11,12,13,14,15], 
+     [16,17,18,19,20], 
+     [21,22,23,24,25]]))
